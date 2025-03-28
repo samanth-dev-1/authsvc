@@ -18,7 +18,7 @@ public class AddressController {
 
     @PostMapping
     public ResponseEntity<Address> createAddress(@RequestBody Address address) {
-        return ResponseEntity.ok(addressService.createAddress(address));
+        return ResponseEntity.ok(addressService.createOrGetAddress(address));
     }
 
     @GetMapping("/{id}")

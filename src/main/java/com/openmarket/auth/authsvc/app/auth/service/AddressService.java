@@ -3,6 +3,7 @@ package com.openmarket.auth.authsvc.app.auth.service;
 import com.openmarket.auth.authsvc.app.auth.models.Address;
 import com.openmarket.auth.authsvc.app.auth.repository.AddressRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +16,15 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    public Address createAddress(Address address) {
+    @Transactional
+    public Address createOrGetAddress(Address address) {
+        // Check for existing address
+        Optional<Address> existingAddress = addressRepository.findDuplicateAddress(address);
+        if (existingAddress.isPresent()) {
+            return existingAddress.get();
+        }
+
+        // If no duplicate found, create new address
         return addressRepository.save(address);
     }
 
