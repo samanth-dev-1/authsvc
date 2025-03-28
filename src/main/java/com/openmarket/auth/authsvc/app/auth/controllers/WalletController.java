@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/wallets")
@@ -26,6 +27,11 @@ public class WalletController {
         return walletService.getWallet(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Wallet>> getAllWallets() {
+        return ResponseEntity.ok(walletService.getAllWallets());
     }
 
     @PutMapping

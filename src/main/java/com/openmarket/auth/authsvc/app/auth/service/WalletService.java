@@ -22,7 +22,7 @@ public class WalletService {
         wallet.setCashAvailale(BigDecimal.ZERO);
         wallet.setCreditAvailable(BigDecimal.ZERO);
         wallet.setCreditApproved(BigDecimal.ZERO);
-        wallet.setActive(true);
+        wallet.setActive(true); // TODO : update logic to check if we should make this true
         return walletRepository.save(wallet);
     }
 
