@@ -1,0 +1,11 @@
+com/openmarket/auth/authsvc/app/auth/service/AuthService.class
+com/openmarket/auth/authsvc/app/auth/models/LoginRequest.class
+com/openmarket/auth/authsvc/app/auth/repository/WalletRepository.class
+com/openmarket/auth/authsvc/app/auth/service/WalletService.class
+com/openmarket/auth/authsvc/app/auth/service/JwtService.class
+com/openmarket/auth/authsvc/app/auth/models/Wallet.class
+com/openmarket/auth/authsvc/app/auth/controllers/WalletController.class
+com/openmarket/auth/authsvc/app/auth/controllers/AuthController.class
+com/openmarket/auth/authsvc/app/auth/models/LoginResponse$LoginResponseBuilder.class
+com/openmarket/auth/authsvc/app/auth/models/LoginResponse.class
+com/openmarket/auth/authsvc/AuthsvcApplication.class
