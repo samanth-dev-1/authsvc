@@ -22,12 +22,12 @@ public class UserTypeController {
         this.userTypeService = userTypeService;
     }
 
-    @Operation(summary = "Create user type", description = "Creates a new user type")
-    @ApiResponse(responseCode = "200", description = "User type created successfully")
+    @Operation(summary = "Create user type", description = "Creates a new user type or returns existing one")
+    @ApiResponse(responseCode = "200", description = "User type created or retrieved successfully")
     @ApiResponse(responseCode = "400", description = "Invalid input")
     @PostMapping
     public ResponseEntity<UserType> createUserType(@RequestBody UserType userType) {
-        return ResponseEntity.ok(userTypeService.createUserType(userType));
+        return ResponseEntity.ok(userTypeService.createOrGetUserType(userType));
     }
 
     @Operation(summary = "Get user type by ID", description = "Retrieves a user type by its ID")

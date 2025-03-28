@@ -22,12 +22,12 @@ public class LanguageController {
         this.languageService = languageService;
     }
 
-    @Operation(summary = "Create language", description = "Creates a new language")
-    @ApiResponse(responseCode = "200", description = "Language created successfully")
+    @Operation(summary = "Create language", description = "Creates a new language or returns existing one")
+    @ApiResponse(responseCode = "200", description = "Language created or retrieved successfully")
     @ApiResponse(responseCode = "400", description = "Invalid input")
     @PostMapping
     public ResponseEntity<Language> createLanguage(@RequestBody Language language) {
-        return ResponseEntity.ok(languageService.createLanguage(language));
+        return ResponseEntity.ok(languageService.createOrGetLanguage(language));
     }
 
     @Operation(summary = "Get language by ID", description = "Retrieves a language by its ID")

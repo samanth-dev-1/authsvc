@@ -24,5 +24,5 @@ public class Language {
 
     @Column(length = 2)
     @Schema(description = "Language code", example = "en")
-    private String code;
+    private String region;
 }
